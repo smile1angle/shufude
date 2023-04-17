@@ -26,7 +26,7 @@ export default class HttpRequest {
         this.instance.interceptors.request.use(config => {
                 const token = localStorage.getItem('b_token');
                 if (!isNull(token)) {
-                    config.headers['Authorization'] = `Bearer ${token}`;
+                    config.headers['openid'] = `${token}`;
                 }
 
                 // 添加全局的loading...
