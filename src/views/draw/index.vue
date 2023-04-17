@@ -113,7 +113,7 @@ import { ref } from 'vue'
     if (data.state == 'ok') {
       // const number = data.data.no
 
-      if (data.data.is_draw == 0) {
+      if (data.data.is_draw != 0) {
         prizeId = 0
       } else {
         prizeId = data.data.reward
@@ -158,7 +158,7 @@ import { ref } from 'vue'
     form.value
       .validate()
       .then(async () => {
-        const { data } = await submitInfo({ name: username.value, phone: phone.value })
+        const { data } = await submitInfo({info: [username.value, phone.value].join(','),url: encodeURIComponent(location.href.split('#')[0]) })
         if (data.state == 'ok') {
           // const number = data.data.no
           $('.infoBox').hide()
