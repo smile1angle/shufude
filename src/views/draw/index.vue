@@ -112,12 +112,7 @@ import { ref } from 'vue'
     const data = await getDraw()
     if (data.state == 'ok') {
       // const number = data.data.no
-
-      if (data.data.is_draw != 0) {
-        prizeId = 0
-      } else {
-        prizeId = data.data.reward
-      }
+      prizeId = data.data.reward
       gift = getImageUrl('gift' + prizeId + '.png')
       if (prizeId != 0) {
         const arr = [0, 2, 4, 6]
