@@ -113,7 +113,7 @@ import { ref } from 'vue'
     if (data.state == 'ok') {
       // const number = data.data.no
       prizeId = data.data.reward
-      gift = getImageUrl('gift' + prizeId + '.png')
+      gift = getImageUrl('gift' + prizeId + '.png?v=1.01')
       if (prizeId != 0) {
         const arr = [0, 2, 4, 6]
         const randomIndex = Math.floor(Math.random() * arr.length)
