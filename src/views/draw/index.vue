@@ -47,7 +47,7 @@
 </template>
 
 <script setup>
-  import { getDraw } from '@/api'
+  import { getDraw, submitInfo } from '@/api'
 import Header from '@/components/Header.vue'
 import { getImageUrl, lookLocation } from '@/utils'
 import { Popup, showFailToast } from 'vant'
@@ -154,13 +154,22 @@ import { ref } from 'vue'
   }
 
   // 提交信息
-  const applyInfo = () => {
+  const applyInfo = async () => {
     form.value
       .validate()
-      .then(() => {
-        $('.infoBox').hide()
-        $('.mapBox').show()
-        closeFlag.value = true
+      .then(async () => {
+        const { data } = await submitInfo({ name: username.value, phone: phone.value })
+        if (data.state == 'ok') {
+          // const number = data.data.no
+          $('.infoBox').hide()
+          $('.mapBox').show()
+          closeFlag.value = true
+        } else {
+          showFailToast({
+            message: data.data.msg,
+            className: 'voteSuccess1'
+          })
+        }
       })
       .catch(() => {
         showFailToast({
