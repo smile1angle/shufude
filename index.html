@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta content="webkit" name="renderer">
+    <!--浏览器内核默认为webkit-->
+    <meta content="yes" name="full-screen">
+    <!-- UC强制全屏 -->
+    <meta content="app" name="x5-page-mode">
+    <!-- QQ应用模式 -->
+    <meta content="true" name="x5-fullscreen">
+    <!-- QQ强制全屏 -->
+    <!-- 微软的老式浏览器 -->
+    <meta content="true" name="HandheldFriendly">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓-->
+    <meta content="application" name="browsermode">
+    <!-- UC应用模式 -->
+    <meta content="portrait" name="x5-orientation">
+    <!-- QQ强制竖屏 -->
+    <meta content="portrait" name="screen-orientation">
+    <!-- uc强制竖屏 -->
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <!-- 避免IE使用兼容模式 -->
+    <meta content="no" name="msapplication-tap-highlight">
+    <!-- windows phone 点击无高光 -->
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <!--启用WebApp全屏模式，可隐藏地址栏，仅针对ios的safari-->
+    <meta content="telephone=no, email=no" name="format-detection" />
+    <!--忽略页面中的数字识别为电话号码和邮箱地址-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <!--隐藏状态栏/设置状态栏颜色，仅针对ios的safari-->
+    <meta content="width= 750,target-densitydpi=device-dpi,maximum-scale=1,minimum-scale=0.5,user-scalable=no" name="viewport">
+    <script>
+        function setWidth(a) {
+            if (/Andriod/i.test(navigator.userAgent)) {
+                var c, b = window.innerWidth;
+                (b != a) && (c = b / a), document.addEventListener("DOMContentLoaded", function() {
+                    var d = document.getElementsByTagName("body")[0];
+                    d.style.webkitTransformOrigin = "left top";
+                    d.style.webkitTransform = "scale(" + c + ")";
+                }, !1)
+            }
+        }
+        setWidth(750);
+    </script>
+    <title>Vite + Vue</title>
+    <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script src="http://zhuanti1.jia360.com/zhuanti/common/js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
